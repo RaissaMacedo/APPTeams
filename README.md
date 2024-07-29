@@ -10,7 +10,7 @@
 
 ## Descrição
 
-Este é uma aplicação mobile desenvolvido com React Native que aborda diversos tópicos avançados, incluindo:
+Este é uma aplicação mobile desenvolvida com React Native que aborda diversos tópicos avançados, incluindo:
 
 - CSS-in-JS com Styled Components
 - Path Mapping,
