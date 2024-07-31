@@ -3,6 +3,7 @@ import { css } from "styled-components";
 import styled from "styled-components/native";
 
 export type ButtonTypeStyleProps = 'PRIMARY' | 'SECONDARY';
+
 type Props = {
   type: ButtonTypeStyleProps;
 }
