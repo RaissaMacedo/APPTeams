@@ -18,6 +18,7 @@ import { Button } from "@components/Button";
 import { Container, Form, HeaderList, NumbersOfPlayers } from "./styles";
 import { playersGetByGroupAndTeam } from "@storage/player/playersGetByGroupAndTeam";
 import { PlayerStorageDTO } from "@storage/player/PlayerStorageDTO";
+import { playerRemoveByGroup } from "@storage/player/playerRemoveByGroup";
 
 
 type RouteParams  = {
@@ -66,6 +67,15 @@ export function Players() {
     } catch (error) {
       console.log(error)
       Alert.alert('Pessoas', 'Não foi possível carregas as pessoas do time selecionado')
+    }
+  }
+  async function  handlePlayerRemove(playerName: string) {
+    try {
+      await playerRemoveByGroup(playerName, group)
+      fetchPlayersByTeam()
+    } catch (error) {
+      console.log(error)
+      Alert.alert('Remover pessoa', 'Não foi possível remover esse jogador')
     }
   }
 
@@ -118,7 +128,7 @@ export function Players() {
         renderItem={({ item }) => (
           <PlayerCard 
             name={item.name}
-            onRemove={() => {}}
+            onRemove={() => handlePlayerRemove(item.name)}
           />
         )}
         ListEmptyComponent={() => (
